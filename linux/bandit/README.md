@@ -1,13 +1,13 @@
-# OverTheWire Bandit
-
 ## Bandit Level 0 -> Level 1
 
 **Challenge:**
 Find the password stored in the `readme` file in the home directory.
 
 **Solution:**
+```bash
 ls
 cat readme
+```
 
 **Explanation:**
 `ls` lists the files in the current directory.
@@ -28,8 +28,10 @@ I learned how to list files and read the contents of a text file.
 Read the password stored inside a file named `-`.
 
 **Solution:**
+```bash
 ls
 cat ./-
+```
 
 **Explanation:**
 `ls` lists the files in the current directory.
@@ -52,8 +54,10 @@ I learned how to access files with unusual names and that `./` means the current
 Read the password stored in a file with spaces in its filename.
 
 **Solution:**
+```bash
 ls
 cat "./--spaces in this filename--"
+```
 
 **Explanation:**
 The filename contains spaces.
@@ -74,9 +78,11 @@ I learned how to work with filenames that contain spaces.
 Find the password stored in a hidden file inside the `inhere` directory.
 
 **Solution:**
+```bash
 cd inhere
 ls -a
 cat ./.Hiding-From-You
+```
 
 **Explanation:**
 `cd inhere` moves into the directory.
@@ -99,13 +105,15 @@ I learned how hidden files work and how to display them using `ls -a`.
 Find the human-readable file inside the `inhere` directory.
 
 **Solution:**
+```bash
 cd inhere
 ls
 file ./*
 cat ./-file07
+```
 
 **Explanation:**
-'ls' lists all the files.
+`ls` lists all the files.
 
 `file ./*` checks the type of every file in the current directory.
 
@@ -130,10 +138,11 @@ Find a file that is:
 - not executable
 
 **Solution:**
+```bash
 cd inhere
-find . -type f -size 1033c \ ! -executable
-
+find . -type f -size 1033c ! -executable
 cat ./maybehere07/.file2
+```
 
 **Explanation:**
 `find .` searches from the current directory.
@@ -161,9 +170,10 @@ Find a file somewhere on the server that:
 - is 33 bytes
 
 **Solution:**
-find / -type f -size 33c \ -user bandit7 -group bandit6
-
+```bash
+find / -type f -size 33c -user bandit7 -group bandit6
 cat /var/lib/dpkg/info/bandit7.password
+```
 
 **Explanation:**
 `find /` searches from the root of the filesystem.
@@ -188,7 +198,9 @@ I learned how to search the entire filesystem using ownership, group and size co
 Find the password next to the word `millionth` inside `data.txt`.
 
 **Solution:**
+```bash
 grep "millionth" data.txt
+```
 
 **Explanation:**
 `grep` searches text for matching words or patterns.
@@ -209,7 +221,9 @@ I learned how to search inside files quickly using `grep`.
 Find the only line in `data.txt` that appears once.
 
 **Solution:**
+```bash
 sort data.txt | uniq -u
+```
 
 **Explanation:**
 `sort` places identical lines next to each other.
@@ -232,7 +246,9 @@ I learned how to combine commands using pipes and find unique data.
 Find the human-readable password inside `data.txt`.
 
 **Solution:**
+```bash
 strings data.txt | grep "="
+```
 
 **Explanation:**
 `strings` extracts readable text from binary data.
@@ -253,8 +269,10 @@ I learned how to extract readable text from binary files.
 Decode the Base64 encoded password stored in `data.txt`.
 
 **Solution:**
+```bash
 man base64
 base64 -d data.txt
+```
 
 **Explanation:**
 `man base64` displays the manual page for the command.
@@ -275,9 +293,10 @@ I learned how to use manual pages and decode Base64 data.
 Decode text where the letters have been rotated by 13 positions.
 
 **Solution:**
+```bash
 cat data.txt
-
 strings data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'
+```
 
 **Explanation:**
 The data uses ROT13.
@@ -300,18 +319,23 @@ I learned how `tr` works and how ROT13 encoding can be reversed.
 Recover a password from data that has been repeatedly compressed in different formats.
 
 **Solution:**
+```bash
 mkdir -p /tmp/bandit-work
 cp data.txt /tmp/bandit-work
 cd /tmp/bandit-work
 
 xxd -r data.txt data
 file data
+```
 
-# Then repeatedly used:
+Then repeatedly used:
+
+```bash
 file
 gzip -d
 bzip2 -d
 tar -xf
+```
 
 **Explanation:**
 `xxd -r` reverses a hexadecimal dump back into binary data.
@@ -334,14 +358,11 @@ I learned how to work through several layers of compression using `file`, gzip, 
 Use the provided SSH private key to log into the next Bandit account.
 
 **Solution:**
-scp -P 2220 \
-bandit13@bandit.labs.overthewire.org:\
-sshkey.private .
-
+```bash
+scp -P 2220 bandit13@bandit.labs.overthewire.org:sshkey.private .
 chmod 600 sshkey.private
-
-ssh -i sshkey.private -p 2220 \
-bandit14@bandit.labs.overthewire.org
+ssh -i sshkey.private -p 2220 bandit14@bandit.labs.overthewire.org
+```
 
 **Explanation:**
 `scp` securely copies files between machines.
@@ -364,8 +385,10 @@ I learned how SSH key authentication works and why private key permissions must 
 Send the current password to a service running on port 30000 on localhost.
 
 **Solution:**
+```bash
 cat /etc/bandit_pass/bandit14
 nc localhost 30000
+```
 
 **Explanation:**
 `cat` displays the current Bandit password.
