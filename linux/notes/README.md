@@ -1,9 +1,9 @@
-Linux Notes
+**Linux Notes**
 
 These notes summarise the Linux fundamentals I have covered while
 building my DevOps foundations.
 
-Linux Basics
+**Linux Basics**
 
 Linux is an operating system widely used for servers, cloud
 infrastructure and DevOps environments. A lot of Linux administration is
@@ -23,7 +23,7 @@ pwd shows the current directory, ls lists its contents and cd is
 used to move between directories. man is useful for checking a
 command's documentation and available options.
 
-Files and Directories
+**Files and Directories**
 
 Linux provides commands for creating, moving, copying and removing files
 and directories.
@@ -39,7 +39,7 @@ and relative paths. ./ refers to the current directory, .. refers to
 the parent directory and ~ represents the current user's home
 directory.
 
-Finding and Reading Files
+**Finding and Reading Files**
 
 Linux has several useful tools for locating files and viewing their
 contents.
@@ -55,7 +55,7 @@ head and tail display the beginning or end of a file, while
 tail -f can follow a file as new content is added, which is useful for
 monitoring logs.
 
-Working with Text
+**Working with Text**
 
 Text-processing commands are useful for searching through files, logs
 and command output.
@@ -80,7 +80,7 @@ command1 | command2
 This allows small Linux tools to be combined to perform more useful
 tasks.
 
-Users, Groups and Permissions
+**Users, Groups and Permissions**
 
 Linux permissions control who can access files and what they are allowed
 to do with them.
@@ -104,7 +104,7 @@ chmod changes permissions and chown changes file ownership.
 Understanding permissions is important for both system administration
 and security.
 
-Processes and Jobs
+**Processes and Jobs**
 
 A process is a running instance of a program.
 
@@ -127,7 +127,7 @@ nohup
 nohup is useful when a command needs to continue running after the
 terminal session closes.
 
-Disk Usage
+**Disk Usage**
 
 Two important commands for checking storage are:
 
@@ -137,7 +137,7 @@ du -sh <directory>
 df shows filesystem capacity and available space, while du shows how
 much space files or directories are using.
 
-Archives and Compression
+**Archives and Compression**
 
 I worked with common Linux archive and compression tools including:
 
@@ -148,7 +148,7 @@ bzip2
 tar is commonly used to package files together, while gzip and
 bzip2 compress data.
 
-SSH
+**SSH**
 
 SSH allows secure remote access to another machine from the command
 line.
@@ -159,7 +159,7 @@ I have used SSH practically to connect from a local Linux environment to
 a remote Ubuntu server. This helped me understand how Linux servers can
 be managed remotely without needing a graphical interface.
 
-Networking Commands
+**Networking Commands**
 
 I have also used Linux tools to inspect network configuration and
 troubleshoot connectivity.
@@ -172,7 +172,7 @@ ip addr displays network interfaces and IP addresses, ping can test
 connectivity, and ss -ltn shows TCP ports that are currently listening
 for connections.
 
-Services and Logs
+**Services and Logs**
 
 Linux services can be managed with systemctl.
 
@@ -199,7 +199,7 @@ sudo apt install <package>
 apt update refreshes the local package information, while
 apt install installs a selected package.
 
-Key Takeaways
+**Key Takeaways**
 
 My Linux learning so far has given me a foundation in navigating and
 managing a Linux system, working with files and permissions, monitoring
