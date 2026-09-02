@@ -1,212 +1,216 @@
-**Linux Notes**
+# Linux Notes
 
-These notes summarise the Linux fundamentals I have covered while
-building my DevOps foundations.
+A summary of the Linux fundamentals I have covered while building my DevOps foundations.
 
-**Linux Basics**
+## LINUX BASICS
 
-Linux is an operating system widely used for servers, cloud
-infrastructure and DevOps environments. A lot of Linux administration is
-carried out through the terminal, where commands can be used to manage
-files, users, processes, services and the system itself.
+Linux is an operating system widely used for servers, cloud infrastructure and DevOps environments. A lot of Linux administration can be carried out directly through the terminal.
 
 Some basic commands I have used include:
 
-pwd
-ls
-cd
-whoami
-history
-man
+`pwd` - Shows the current working directory.
 
-pwd shows the current directory, ls lists its contents and cd is
-used to move between directories. man is useful for checking a
-command's documentation and available options.
+`ls` - Lists files and directories.
 
-**Files and Directories**
+`cd` - Changes directory.
 
-Linux provides commands for creating, moving, copying and removing files
-and directories.
+`whoami` - Shows the current user.
 
-touch
-mkdir
-cp
-mv
-rm
+`history` - Shows previously executed commands.
 
-I also learned how paths work, including the difference between absolute
-and relative paths. ./ refers to the current directory, .. refers to
-the parent directory and ~ represents the current user's home
-directory.
+`man` - Opens the manual for a command.
 
-**Finding and Reading Files**
 
-Linux has several useful tools for locating files and viewing their
-contents.
+## FILES AND DIRECTORIES
 
-find
-cat
-less
-head
-tail
+Linux provides commands for creating, copying, moving, renaming and deleting files and directories.
 
-find can search based on conditions such as name, type and size.
-head and tail display the beginning or end of a file, while
-tail -f can follow a file as new content is added, which is useful for
-monitoring logs.
+`touch` - Creates a file.
 
-**Working with Text**
+`mkdir` - Creates a directory.
 
-Text-processing commands are useful for searching through files, logs
-and command output.
+`cp` - Copies files or directories.
 
-grep
-sort
-uniq
-cut
-tr
-awk
-sed
-wc
+`mv` - Moves or renames files.
 
-For example, grep searches for matching text, sort orders output,
-uniq helps remove repeated lines and wc can count lines or words.
+`rm` - Removes files or directories.
 
-I also learned how pipes can pass the output of one command into
-another:
+I also learned how Linux paths work. `./` represents the current directory, `..` represents the parent directory and `~` represents the current user's home directory.
 
-command1 | command2
 
-This allows small Linux tools to be combined to perform more useful
-tasks.
+## FINDING AND READING FILES
 
-**Users, Groups and Permissions**
+Linux provides several tools for finding files and viewing their contents.
 
-Linux permissions control who can access files and what they are allowed
-to do with them.
+`find` - Searches for files and directories based on conditions such as name, type or size.
 
-The main permissions are:
+`cat` - Displays the contents of a file.
 
-Read (r)
+`less` - Allows file contents to be viewed one screen at a time.
 
-Write (w)
+`head` - Displays the beginning of a file.
 
-Execute (x)
+`tail` - Displays the end of a file.
 
-They apply to the file owner, group and other users.
+`tail -f` - Follows a file as new content is added, which is particularly useful when monitoring logs.
 
-Useful commands include:
 
-chmod
-chown
+## WORKING WITH TEXT
 
-chmod changes permissions and chown changes file ownership.
-Understanding permissions is important for both system administration
-and security.
+Linux has powerful tools for searching and processing text.
 
-**Processes and Jobs**
+`grep` - Searches for matching text.
+
+`sort` - Sorts lines of text.
+
+`uniq` - Filters repeated adjacent lines.
+
+`cut` - Extracts selected parts of each line.
+
+`tr` - Translates or replaces characters.
+
+`awk` - Processes structured text and fields.
+
+`sed` - Performs text transformations.
+
+`wc` - Counts lines, words or characters.
+
+I also learned how pipes (`|`) pass the output of one command into another. This allows multiple Linux tools to be combined to complete more useful tasks.
+
+
+## USERS, GROUPS AND PERMISSIONS
+
+Linux permissions control who can access files and what actions they can perform.
+
+The three main permissions are:
+
+- Read (`r`)
+- Write (`w`)
+- Execute (`x`)
+
+Permissions are applied to the user who owns the file, the group associated with it and other users.
+
+`chmod` - Changes file permissions.
+
+`chown` - Changes file ownership.
+
+Understanding permissions is important for controlling access and keeping Linux systems secure.
+
+
+## PROCESSES AND JOBS
 
 A process is a running instance of a program.
 
-ps
-ps aux
-top
-kill
+`ps` - Displays running processes.
 
-ps provides information about running processes, top gives a live
-view of processes and resource usage, and kill can send a signal to a
-process using its PID.
+`ps aux` - Shows a more detailed list of processes.
 
-I also covered background and foreground jobs using:
+`top` - Provides a live view of processes and system resource usage.
 
-jobs
-bg
-fg
-nohup
+`kill` - Sends a signal to a process using its PID.
 
-nohup is useful when a command needs to continue running after the
-terminal session closes.
+I also covered:
 
-**Disk Usage**
+`jobs` - Shows jobs associated with the current shell.
 
-Two important commands for checking storage are:
+`bg` - Continues a stopped job in the background.
 
-df -h
-du -sh <directory>
+`fg` - Brings a job into the foreground.
 
-df shows filesystem capacity and available space, while du shows how
-much space files or directories are using.
+`nohup` - Allows a command to continue running after the terminal session closes.
 
-**Archives and Compression**
 
-I worked with common Linux archive and compression tools including:
+## DISK USAGE
 
-tar
-gzip
-bzip2
+`df -h` - Shows filesystem capacity, used space and available space in a human-readable format.
 
-tar is commonly used to package files together, while gzip and
-bzip2 compress data.
+`du -sh <directory>` - Shows how much disk space a particular directory is using.
 
-**SSH**
+The main difference is that `df` looks at filesystem capacity, while `du` looks at the space being consumed by files and directories.
 
-SSH allows secure remote access to another machine from the command
-line.
 
-ssh user@host
+## ARCHIVES AND COMPRESSION
 
-I have used SSH practically to connect from a local Linux environment to
-a remote Ubuntu server. This helped me understand how Linux servers can
-be managed remotely without needing a graphical interface.
+I have worked with several common Linux tools for archives and compression.
 
-**Networking Commands**
+`tar` - Packages files and directories into an archive.
 
-I have also used Linux tools to inspect network configuration and
-troubleshoot connectivity.
+`gzip` - Compresses files using gzip compression.
 
-ip addr
-ping
-ss -ltn
+`bzip2` - Compresses files using bzip2 compression.
 
-ip addr displays network interfaces and IP addresses, ping can test
-connectivity, and ss -ltn shows TCP ports that are currently listening
-for connections.
+An archive packages files together, while compression reduces the amount of storage the data requires.
 
-**Services and Logs**
 
-Linux services can be managed with systemctl.
+## SSH
 
-sudo systemctl start <service>
-sudo systemctl status <service>
-sudo systemctl enable <service>
+SSH provides secure remote command-line access to another machine.
 
-I used these commands when working with NGINX on an Ubuntu server.
+Example:
 
-For troubleshooting services, I also used journalctl:
+`ssh user@host`
 
-sudo journalctl -u <service>
+I have used SSH practically to connect from a local Linux environment to a remote Ubuntu server. This helped me understand how Linux servers can be managed remotely without needing a graphical interface.
 
-This allows logs for a particular service to be inspected when something
-is not working as expected.
 
-Package Management
+## NETWORKING COMMANDS
 
-On Ubuntu, APT is used to manage software packages.
+I have used several Linux commands for inspecting network configuration and troubleshooting connectivity.
 
-sudo apt update
-sudo apt install <package>
+`ip addr` - Displays network interfaces and their IP addresses.
 
-apt update refreshes the local package information, while
-apt install installs a selected package.
+`ping` - Tests connectivity to another host.
 
-**Key Takeaways**
+`ss -ltn` - Displays TCP ports that are currently listening for connections.
 
-My Linux learning so far has given me a foundation in navigating and
-managing a Linux system, working with files and permissions, monitoring
-processes and storage, accessing remote machines, managing services and
-using command-line tools to troubleshoot problems.
+These commands are useful for understanding the state of a machine before investigating wider network problems.
 
-The main thing I have taken from Linux is that understanding why a
-command is being used is more valuable than simply memorising it.
-Knowing what information a command gives me makes it much easier to
-choose the right tool when solving a problem.
+
+## SERVICES AND LOGS
+
+Linux services can be managed using `systemctl`.
+
+`systemctl start <service>` - Starts a service.
+
+`systemctl status <service>` - Checks the current status of a service.
+
+`systemctl enable <service>` - Configures a service to start automatically at boot.
+
+I have used these commands when managing NGINX on an Ubuntu server.
+
+For troubleshooting, I have also used:
+
+`journalctl -u <service>` - Displays logs for a specific systemd service.
+
+`journalctl -u <service> -f` - Follows new log entries as they are created.
+
+This makes it possible to check not only whether a service has failed, but also investigate why it failed.
+
+
+## PACKAGE MANAGEMENT
+
+Ubuntu uses APT for package management.
+
+`sudo apt update` - Refreshes the local package index.
+
+`sudo apt install <package>` - Installs a package.
+
+Understanding the difference between updating the package index and actually installing or upgrading software helped me troubleshoot package installation problems.
+
+
+## KEY TAKEAWAYS
+
+My Linux learning so far has given me a foundation in:
+
+- Navigating and managing the Linux filesystem
+- Finding files and processing text
+- Managing users, groups and permissions
+- Monitoring processes and jobs
+- Checking filesystem and disk usage
+- Working with archives and compression
+- Connecting to remote machines with SSH
+- Using Linux networking tools
+- Managing services and investigating logs
+- Managing software packages
+
+The biggest thing I have taken from Linux is that understanding why a command is being used is more valuable than simply memorising it. Knowing what information each command provides makes it much easier to choose the right tool when troubleshooting a problem.
