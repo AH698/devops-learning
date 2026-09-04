@@ -11,7 +11,7 @@ def hello_world():
     db = MySQLdb.connect(
         host="mydb",    # Hostname of the MySQL container
         user="root",    # Username to connect to MySQL
-        passwd=os.environ.get("MYSQL_PASSWORD"),  # Password for the MySQL user
+        passwd="my-secret-pw",  # Password for the MySQL user
         db="mysql"      # Name of the database to connect to
     )
     cur = db.cursor()
